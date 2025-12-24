@@ -36,6 +36,7 @@ public class ModCreativeModeTabs {
 
                         // Plants yay
                         output.accept(ModBlocks.MOIST_GRASS.get());
+                        output.accept(ModBlocks.MEDIUM_MOIST_GRASS.get());
 
 
                         // Custom model blocks yay

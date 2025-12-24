@@ -1,7 +1,6 @@
 package net.grey.croodstatic.block;
 
 import net.grey.croodstatic.Croodstatic;
-import net.grey.croodstatic.block.custom.MoistGrass;
 import net.grey.croodstatic.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -13,8 +12,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
-
-import static net.minecraftforge.registries.ForgeRegistries.ITEMS;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -47,13 +44,21 @@ public class ModBlocks {
     public static final RegistryObject<Block> GRASSY_MOIST_SOIL = registerBlock("grassy_moist_soil",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
 
-    public static final RegistryObject<Block> MOIST_SOIL = registerBlock("moist_soil",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
+    public static final RegistryObject<Block> MOIST_SOIL =
+            registerBlock("moist_soil",
+                    () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
     public static final RegistryObject<Block> MOIST_GRASS = BLOCKS.register("moist_grass",
-            () -> new MoistGrass(BlockBehaviour.Properties.copy(Blocks.GRASS)));
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.GRASS)));
 
-
+    public static final RegistryObject<Block> MEDIUM_MOIST_GRASS = BLOCKS.register("medium_moist_grass",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.GRASS)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

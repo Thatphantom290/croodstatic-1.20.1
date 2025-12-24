@@ -1,18 +1,20 @@
 {
-  "block.croodstatic.redslate": "Ardósia vermelha",
-  "block.croodstatic.cut_redslate": "Ardósia vermelha cortada",
-  "block.croodstatic.smooth_redslate": "Ardósia vermelha polida",
-  "block.croodstatic.chiseled_redslate": "Ardósia vermelha talhada",
-  "block.croodstatic.redslate_slab": "Laje de ardósia vermelha",
-  "block.croodstatic.redslate_stairs": "Escada de ardósia vermelha",
-  "block.croodstatic.redslate_wall": "Muro de ardósia vermelha",
-  "block.croodstatic.grassy_moist_soil": "Solo úmido com grama",
-  "block.croodstatic.moist_soil": "Solo úmido",
+  "block.croodstatic.redslate": "Ardósia Vermelha",
+  "block.croodstatic.cut_redslate": "Ardósia Vermelha Cortada",
+  "block.croodstatic.smooth_redslate": "Ardósia Vermelha Polida",
+  "block.croodstatic.chiseled_redslate": "Ardósia Vermelha Talhada",
+  "block.croodstatic.redslate_slab": "Laje De Ardósia Vermelha",
+  "block.croodstatic.redslate_stairs": "Escada De Ardósia Vermelha",
+  "block.croodstatic.redslate_wall": "Muro De Ardósia Vermelha",
+  "block.croodstatic.grassy_moist_soil": "Solo Úmido Com Grama",
+  "block.croodstatic.moist_soil": "Solo Úmido",
+  "block.croodstatic.moist_grass": "Grama Úmida",
+  "block.croodstatic.medium_moist_grass": "Grama Moderadamente Úmida",
 
-  "item.croodstaic.chickuna_egg": "Ovo de chickuna",
+  "item.croodstaic.chickuna_egg": "Ovo De Chickuna",
 
-  "painting.croodstatic.rawr_canyon": "Cânion rawr",
-  "painting.author.croodstatic": "SlimesMC",
+  "item.croodstatic.rawr_canyon": "Cânion Rawr",
+  "item.author.croodstatic.rawr_canyon": "SlimesMC",
 
-  "creativetab.croodstatic": "O croodstático"
+  "creativetab.croodstatic": "O Croodstático"
 }

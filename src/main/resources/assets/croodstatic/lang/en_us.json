@@ -1,18 +1,21 @@
 {
   "block.croodstatic.redslate": "Redslate",
-  "block.croodstatic.cut_redslate": "Cut redslate",
-  "block.croodstatic.smooth_redslate": "Smooth redslate",
-  "block.croodstatic.chiseled_redslate": "Chiseled redslate",
-  "block.croodstatic.redslate_slab": "Redslate slab",
-  "block.croodstatic.redslate_stairs": "Redslate stairs",
-  "block.croodstatic.redslate_wall": "Redslate wall",
-  "block.croodstatic.grassy_moist_soil": "Grassy moist soil",
-  "block.croodstatic.moist_soil": "Moist soil",
+  "block.croodstatic.cut_redslate": "Cut Redslate",
+  "block.croodstatic.smooth_redslate": "Smooth Redslate",
+  "block.croodstatic.chiseled_redslate": "Chiseled Redslate",
+  "block.croodstatic.redslate_slab": "Redslate Slab",
+  "block.croodstatic.redslate_stairs": "Redslate Stairs",
+  "block.croodstatic.redslate_wall": "Redslate Wall",
+  "block.croodstatic.grassy_moist_soil": "Grassy Moist Soil",
+  "block.croodstatic.moist_soil": "Moist Soil",
 
-  "item.croodstaic.chickuna_egg": "Chickuna egg",
+  "block.croodstatic.moist_grass": "Moist Grass",
+  "block.croodstatic.medium_moist_grass": "Grama Moderadamente Úmida",
 
-  "painting.croodstatic.rawr_canyon": "Rawr canyon",
-  "painting.author.croodstatic": "SlimesMC",
+  "item.croodstaic.chickuna_egg": "Chickuna Egg",
 
-  "creativetab.croodstatic": "The croodstatic"
+  "item.croodstatic.rawr_canyon": "Rawr Canyon",
+  "item.author.croodstatic": "SlimesMC",
+
+  "creativetab.croodstatic": "The Croodstatic"
 }
