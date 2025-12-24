@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "croodstatic:block/moist_grass"
+  }
+}
