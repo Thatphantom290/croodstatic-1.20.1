@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "croodstatic:redslate"
+    }
+  },
+  "result": {
+    "item": "croodstatic:redslate_stairs",
+    "count": 4
+  }
+}

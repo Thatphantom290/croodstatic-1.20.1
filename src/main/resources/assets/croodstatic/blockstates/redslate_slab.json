@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "croodstatic:block/redslate_slab" },
+    "type=top": { "model": "croodstatic:block/redslate_slab_top" },
+    "type=double": { "model": "croodstatic:block/redslate" }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "croodstatic:block/smooth_redslate",
+    "down": "croodstatic:block/smooth_redslate",
+    "north": "croodstatic:block/chiseled_redslate",
+    "south": "croodstatic:block/chiseled_redslate",
+    "east": "croodstatic:block/chiseled_redslate",
+    "west": "croodstatic:block/chiseled_redslate"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "croodstatic:redslate"
+  },
+  "result": "croodstatic:smooth_redslate",
+  "experience": 0.1,
+  "cookingtime": 200
+}

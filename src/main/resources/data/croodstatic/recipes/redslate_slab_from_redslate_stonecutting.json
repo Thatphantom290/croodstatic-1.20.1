@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "croodstatic:redslate"
+  },
+  "result": "croodstatic:redslate_slab",
+  "count": 4
+}
