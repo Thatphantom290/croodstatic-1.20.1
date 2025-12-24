@@ -14,8 +14,8 @@
 
   "item.croodstaic.chickuna_egg": "Chickuna Egg",
 
-  "item.croodstatic.rawr_canyon": "Rawr Canyon",
-  "item.author.croodstatic": "SlimesMC",
+  "painting.croodstatic.rawr_canyon.item": "Rawr Canyon",
+  "painting.author.croodstatic.rawr_canyon.author": "SlimesMC",
 
   "creativetab.croodstatic": "The Croodstatic"
 }
