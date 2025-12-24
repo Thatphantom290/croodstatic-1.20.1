@@ -48,13 +48,13 @@ public class ModBlocks {
             registerBlock("moist_soil",
                     () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
-    public static final RegistryObject<Block> MOIST_GRASS = BLOCKS.register("moist_grass",
+    public static final RegistryObject<Block> MOIST_GRASS = registerBlock("moist_grass",
             () -> new Block(BlockBehaviour.Properties.of()
                     .noCollission()
                     .instabreak()
                     .sound(SoundType.GRASS)));
 
-    public static final RegistryObject<Block> MEDIUM_MOIST_GRASS = BLOCKS.register("medium_moist_grass",
+    public static final RegistryObject<Block> MEDIUM_MOIST_GRASS = registerBlock("medium_moist_grass",
             () -> new Block(BlockBehaviour.Properties.of()
                     .noCollission()
                     .instabreak()
