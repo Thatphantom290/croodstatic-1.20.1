@@ -38,8 +38,7 @@ public class ModCreativeModeTabs {
                         // Items yay
 
 
-                        // Paintings yay
-                        output.accept((ItemLike) ModPaintings.CANYON.get());
+
                     })
 
 
