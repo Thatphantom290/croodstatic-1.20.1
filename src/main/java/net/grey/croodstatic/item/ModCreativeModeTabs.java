@@ -17,7 +17,7 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Croodstatic.MODID);
 
     public static final RegistryObject<CreativeModeTab> CROODSTATIC = CREATIVE_MODE_TABS.register("croodstatic",
-            () -> CreativeModeTab.builder()
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHICKUNA_EGG.get()))
                     .title(Component.translatable("creativetab.croodstatic"))
                     .displayItems((itemDisplayParameters, output) -> {
                         // Blocks yay
@@ -36,7 +36,7 @@ public class ModCreativeModeTabs {
 
 
                         // Items yay
-
+                        output.accept(ModItems.CHICKUNA_EGG.get()); // First of many!
 
 
                     })
