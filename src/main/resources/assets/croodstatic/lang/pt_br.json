@@ -6,6 +6,12 @@
   "block.croodstatic.redslate_slab": "Laje de ardósia vermelha",
   "block.croodstatic.redslate_stairs": "Escada de ardósia vermelha",
   "block.croodstatic.redslate_wall": "Muro de ardósia vermelha",
+  "block.croodstatic.grassy_moist_soil": "Solo úmido com grama",
+  "block.croodstatic.moist_soil": "Solo úmido",
+
+  "item.croodstaic.chickuna_egg": "Ovo de chickuna",
+
+  "paintings.croodstatic.rawr_canyon": "Cânion Rawr",
 
   "creativetab.croodstatic": "O croodstático"
 }

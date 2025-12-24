@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "croodstatic:block/grassy_moist_soil_up",
+    "down": "croodstatic:block/moist_soil",
+    "north": "croodstatic:block/grassy_moist_soil",
+    "south": "croodstatic:block/grassy_moist_soil",
+    "east": "croodstatic:block/grassy_moist_soil",
+    "west": "croodstatic:block/grassy_moist_soil"
+  }
+}

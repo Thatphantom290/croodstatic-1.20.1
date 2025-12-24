@@ -31,6 +31,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.REDSLATE_WALL.get());
                         output.accept(ModBlocks.REDSLATE_SLAB.get());
                         output.accept(ModBlocks.SMOOTH_REDSLATE.get());
+                        output.accept(ModBlocks.GRASSY_MOIST_SOIL.get());
+                        output.accept(ModBlocks.MOIST_SOIL.get());
 
                         // Custom model blocks yay
 

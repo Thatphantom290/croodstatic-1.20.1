@@ -11,7 +11,7 @@ public class ModPaintings {
     public static final DeferredRegister<PaintingVariant> PAINTING_VARIANTS =
             DeferredRegister.create(ForgeRegistries.PAINTING_VARIANTS, Croodstatic.MODID);
 
-    public static final RegistryObject<PaintingVariant> CANYON = PAINTING_VARIANTS.register("canyon",
+    public static final RegistryObject<PaintingVariant> RARWR_CANYON = PAINTING_VARIANTS.register("rawr_canyon",
             () -> new PaintingVariant(32, 32));
 
     public static void register(IEventBus eventBus) {
