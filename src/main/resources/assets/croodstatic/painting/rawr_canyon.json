@@ -1,0 +1,11 @@
+{
+  "variant": "rawr_canyon",
+  "width": 32,
+  "height": 32,
+  "title": {
+    "translate": "painting.croodstatic.rawr_canyon"
+  },
+  "author": {
+    "translate": "painting.author.croodstatic"
+  }
+}

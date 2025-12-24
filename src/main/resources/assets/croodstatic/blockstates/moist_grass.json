@@ -1,6 +1,12 @@
 {
   "variants": {
-    "variant=type1": { "model": "croodstatic:block/moist_grass" },
-    "variant=type2": { "model": "croodstatic:block/medium_moist_grass" }
+    "variant=type1": {
+      "model": "croodstatic:block/moist_grass",
+      "render_type": "cutout"
+    },
+    "variant=type2": {
+      "model": "croodstatic:block/medium_moist_grass",
+      "render_type": "cutout"
+    }
   }
 }
