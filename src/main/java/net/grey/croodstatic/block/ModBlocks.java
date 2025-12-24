@@ -41,8 +41,8 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(REDSLATE.get())));
 
     public static final RegistryObject<Block> REDSLATE_WALL =
-            registerBlock("redslate_wall", () -> new WallBlock(
-                    BlockBehaviour.Properties.copy(REDSLATE.get())));
+            registerBlock("redslate_wall",
+                    () -> new WallBlock(BlockBehaviour.Properties.copy(REDSLATE.get())));
 
     public static final RegistryObject<Block> GRASSY_MOIST_SOIL = registerBlock("grassy_moist_soil",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));

@@ -19,9 +19,6 @@ public class ModItems {
     public static final RegistryObject<Item> CHICKUNA_EGG = ITEMS.register("chickuna_egg",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> REDSLATE_WALL_ITEM = ITEMS.register("redslate_wall",
-            () -> new BlockItem(ModBlocks.REDSLATE_WALL.get(), new Item.Properties()));
-
     public static final RegistryObject<Item> MOIST_GRASS_ITEM = ITEMS.register("moist_grass",
             () -> new BlockItem(MOIST_GRASS.get(), new Item.Properties()));
 
