@@ -6,7 +6,7 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 public class ChickunaRenderer extends GeoEntityRenderer<ChickunaEntity> {
-    public ChickunaRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new ChickunaModel());
+    public ChickunaRenderer(EntityRendererProvider.Context ctx) {
+        super(ctx, new ChickunaModel());
     }
 }

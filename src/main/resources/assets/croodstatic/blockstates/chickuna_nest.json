@@ -1,13 +1,7 @@
 {
   "variants": {
-    "egg=none": {
-      "model": "croodstatic:block/chickuna_nest"
-    },
-    "egg=chickuna": {
-      "model": "croodstatic:block/chickuna_nest_egg"
-    },
-    "egg=wild": {
-      "model": "croodstatic:block/chickuna_nest_wild_egg"
-    }
+    "egg=none": { "model": "croodstatic:block/chickuna_nest" },
+    "egg=chickuna": { "model": "croodstatic:block/chickuna_nest_egg" },
+    "egg=wild": { "model": "croodstatic:block/chickuna_nest_wild_egg" }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "l l",
+    "lll"
+  ],
+  "key": {
+    "l": {
+      "item": "minecraft:stick"
+    }
+  },
+  "key1": {
+    "#": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "result": {
+    "item": "croodstatic:chcikuna_nest",
+    "count": 1
+  }
+}

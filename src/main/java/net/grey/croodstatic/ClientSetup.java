@@ -22,6 +22,5 @@ public class ClientSetup {
 
         EntityRenderers.register(ModEntities.CHICKUNA.get(), ChickunaRenderer::new);
         EntityRenderers.register(ModEntities.WILD_CHICKUNA.get(), WildChickunaRenderer::new);
-
     }
 }

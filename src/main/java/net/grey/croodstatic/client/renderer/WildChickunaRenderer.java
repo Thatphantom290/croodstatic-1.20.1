@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class WildChickunaRenderer extends GeoEntityRenderer<WildChickunaEntity> {
-    public WildChickunaRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new WildChickunaModel());
+    public WildChickunaRenderer(EntityRendererProvider.Context ctx) {
+        super(ctx, new WildChickunaModel());
     }
 }

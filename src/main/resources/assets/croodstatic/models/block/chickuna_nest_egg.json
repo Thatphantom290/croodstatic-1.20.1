@@ -1,6 +1,4 @@
 {
   "parent": "block/cube_all",
-  "textures": {
-    "all": "croodstatic:block/chickuna_nest_egg"
-  }
+  "textures": { "all": "croodstatic:block/chickuna_nest_egg" }
 }

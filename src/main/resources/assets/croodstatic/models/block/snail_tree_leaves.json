@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/leaves",
+  "parent": "block/leaves",
   "textures": {
-    "all": "croodstatic:block/snail_leaf"
+    "all": "croodstatic:block/snail_tree_leaves"
   }
 }
