@@ -1,0 +1,19 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.chickuna.walk": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": ["-math.sin(query.anim_time * -360) * 25", 0, 0]
+				},
+				"rightleg": {
+					"rotation": ["-math.sin(query.anim_time * 360) * 25", 0, 0]
+				}
+			}
+		},
+		"animation.chickuna.idle": {
+			"loop": true
+		}
+	}
+}

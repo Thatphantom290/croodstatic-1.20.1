@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "croodstatic:block/snail_tree_stem_top",
+    "side": "croodstatic:block/snail_tree_stem"
+  }
+}

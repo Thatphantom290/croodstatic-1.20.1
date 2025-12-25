@@ -2,9 +2,11 @@ package net.grey.croodstatic;
 
 import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
+import net.grey.croodstatic.entity.ModEntities;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
 import net.grey.croodstatic.painting.ModPaintings;
+import net.grey.croodstatic.block.ModBlockEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,6 +34,8 @@ public class Croodstatic
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModEntities.ENTITIES.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
         ModPaintings.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModBlocks.register(modEventBus);

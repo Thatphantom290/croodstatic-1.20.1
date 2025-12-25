@@ -60,6 +60,34 @@ public class ModBlocks {
                     .instabreak()
                     .sound(SoundType.GRASS)));
 
+    public static final RegistryObject<Block> SNAIL_TREE_GROWTHS = registerBlock("snail_tree_growths",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.CORAL_BLOCK)));
+
+    public static final RegistryObject<Block> SNAIL_TREE_LEAF = registerBlock("snail_tree_leaf",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(0.2F)
+                    .sound(SoundType.GRASS)
+                    .noOcclusion()
+                    .isValidSpawn((state, world, pos, entity) -> false)
+                    .isSuffocating((state, world, pos) -> false)
+                    .isViewBlocking((state, world, pos) -> false)));
+
+    public static final RegistryObject<Block> SNAIL_TREE_STEM = registerBlock("snail_tree_stem",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()
+                    .strength(2.0F)
+                    .sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> CHICKUNA_NEST = registerBlock("chickuna_nest",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(1.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()));
+
+
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

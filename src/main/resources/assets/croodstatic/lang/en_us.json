@@ -9,10 +9,14 @@
   "block.croodstatic.grassy_moist_soil": "Grassy Moist Soil",
   "block.croodstatic.moist_soil": "Moist Soil",
 
+  "block.croodstatic.snail_tree_stem": "Snail Tree Stem",
+  "block.croodstatic.snail_tree_leaf": "Snail Tree Leaves",
+  "block.croodstatic.snail_tree_growths": "Snail Tree Growths",
   "block.croodstatic.moist_grass": "Moist Grass",
-  "block.croodstatic.medium_moist_grass": "Grama Moderadamente Úmida",
+  "block.croodstatic.medium_moist_grass": "Medium Moist Grass",
 
   "item.croodstaic.chickuna_egg": "Chickuna Egg",
+  "item.croodstaic.wild-chickuna_egg": "Wild Chickuna Egg",
 
   "painting.croodstatic.rawr_canyon.item": "Rawr Canyon",
   "painting.author.croodstatic.rawr_canyon.author": "SlimesMC",

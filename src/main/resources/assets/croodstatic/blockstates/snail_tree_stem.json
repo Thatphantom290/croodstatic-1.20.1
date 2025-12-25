@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y": { "model": "croodstatic:block/snail_tree_stem" },
+    "axis=x": { "model": "croodstatic:block/snail_tree_stem_horizontal" },
+    "axis=z": { "model": "croodstatic:block/snail_tree_stem_horizontal" }
+  }
+}

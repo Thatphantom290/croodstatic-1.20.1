@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "croodstatic:block/chickuna_nest_wild_egg"
+  }
+}

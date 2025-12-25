@@ -28,15 +28,24 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.REDSLATE_WALL.get());
                                 output.accept(ModBlocks.REDSLATE_SLAB.get());
                                 output.accept(ModBlocks.SMOOTH_REDSLATE.get());
-                                output.accept(ModBlocks.GRASSY_MOIST_SOIL.get());
+                                output.accept(ModBlocks.SNAIL_TREE_STEM.get());
                                 output.accept(ModBlocks.MOIST_SOIL.get());
 
                                 // Flora Yay
                                 output.accept(ModBlocks.MOIST_GRASS.get());
                                 output.accept(ModBlocks.MEDIUM_MOIST_GRASS.get());
+                                output.accept(ModBlocks.SNAIL_TREE_GROWTHS.get());
+                                output.accept(ModBlocks.GRASSY_MOIST_SOIL.get());
+                                output.accept(ModBlocks.SNAIL_TREE_LEAF.get());
 
                                 // Item Yay
-                                output.accept(new ItemStack(ModItems.CHICKUNA_EGG.get())); }) .build());
+                                output.accept(new ItemStack(ModItems.CHICKUNA_EGG.get()));
+                                output.accept(new ItemStack(ModItems.WILD_CHICKUNA_EGG.get()));
+                                output.accept(new ItemStack(ModItems.WILD_CHICKUNA_SPAWN_EGG.get()));
+                                output.accept(new ItemStack(ModItems.CHICKUNA_SPAWN_EGG.get()));
+                            })
+                            .build());
+
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);

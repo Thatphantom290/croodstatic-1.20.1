@@ -8,10 +8,15 @@
   "block.croodstatic.redslate_wall": "Muro De Ardósia Vermelha",
   "block.croodstatic.grassy_moist_soil": "Solo Úmido Com Grama",
   "block.croodstatic.moist_soil": "Solo Úmido",
+
+  "block.croodstatic.snail_tree_stem": "Caule De Árvore Caracol",
+  "block.croodstatic.snail_tree_leaf": "Folhas De Árvore Caracol",
   "block.croodstatic.moist_grass": "Grama Úmida",
   "block.croodstatic.medium_moist_grass": "Grama Moderadamente Úmida",
+  "block.croodstatic.snail_tree_growths": "Broto De Árvore Caracol",
 
   "item.croodstaic.chickuna_egg": "Ovo De Chickuna",
+  "item.croodstaic.wild-chickuna_egg": "Ovo De Chickuna Selvagem",
 
   "painting.croodstatic.rawr_canyon.item": "Cânion Rawr",
   "painting.author.croodstatic.rawr_canyon.author": "SlimesMC",
