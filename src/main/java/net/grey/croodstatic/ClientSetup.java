@@ -2,6 +2,7 @@ package net.grey.croodstatic;
 
 import net.grey.croodstatic.block.ModBlocks;
 import net.grey.croodstatic.client.renderer.ChickunaRenderer;
+import net.grey.croodstatic.client.renderer.WildChickunaRenderer;
 import net.grey.croodstatic.entity.ModEntities;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -16,10 +17,11 @@ public class ClientSetup {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOIST_GRASS.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SNAIL_TREE_LEAF.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SNAIL_TREE_GROWTHS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MEDIUM_MOIST_GRASS.get(), RenderType.cutout());
 
         EntityRenderers.register(ModEntities.CHICKUNA.get(), ChickunaRenderer::new);
+        EntityRenderers.register(ModEntities.WILD_CHICKUNA.get(), WildChickunaRenderer::new);
+
     }
 }

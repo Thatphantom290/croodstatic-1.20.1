@@ -66,8 +66,8 @@ public class ModBlocks {
                     .instabreak()
                     .sound(SoundType.CORAL_BLOCK)));
 
-    public static final RegistryObject<Block> SNAIL_TREE_LEAF = registerBlock("snail_tree_leaf",
-            () -> new Block(BlockBehaviour.Properties.of()
+    public static final RegistryObject<Block> SNAIL_TREE_LEAVES = registerBlock("snail_tree_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.of()
                     .strength(0.2F)
                     .sound(SoundType.GRASS)
                     .noOcclusion()
