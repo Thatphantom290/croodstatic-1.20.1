@@ -1,6 +1,7 @@
 package net.grey.croodstatic.client.renderer;
 
 import net.grey.croodstatic.client.model.ChickunaModel;
+import net.grey.croodstatic.client.model.WildChickunaModel;
 import net.grey.croodstatic.entity.ChickunaEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
