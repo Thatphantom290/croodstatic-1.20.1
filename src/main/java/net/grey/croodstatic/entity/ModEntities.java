@@ -1,6 +1,7 @@
 package net.grey.croodstatic.entity;
 
-import net.grey.croodstatic.entity.ChickunaEntity;
+import net.grey.croodstatic.Croodstatic;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,11 +16,12 @@ public class ModEntities {
             ENTITIES.register("chickuna",
                     () -> EntityType.Builder.of(ChickunaEntity::new, MobCategory.CREATURE)
                             .sized(0.4F, 0.7F)
-                            .build("chickuna"));
+                            .build(new ResourceLocation(Croodstatic.MODID, "chickuna").toString()));
 
     public static final RegistryObject<EntityType<WildChickunaEntity>> WILD_CHICKUNA =
             ENTITIES.register("wild_chickuna",
                     () -> EntityType.Builder.of(WildChickunaEntity::new, MobCategory.CREATURE)
                             .sized(0.4F, 0.7F)
-                            .build("wild_chickuna"));
+                            .build(new ResourceLocation(Croodstatic.MODID, "wild_chickuna").toString()));
+
 }
