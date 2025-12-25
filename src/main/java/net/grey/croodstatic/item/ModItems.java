@@ -20,16 +20,17 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> CHICKUNA_SPAWN_EGG = ITEMS.register("chickuna_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.CHICKUNA,
+            () -> new ForgeSpawnEggItem(ModEntities.CHICKUNA::get,
                     0xE5F7E0,
                     0x338F95,
                     new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> WILD_CHICKUNA_SPAWN_EGG = ITEMS.register("wild_chickuna_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.WILD_CHICKUNA,
+            () -> new ForgeSpawnEggItem(ModEntities.WILD_CHICKUNA::get,
                     0xAF5F40,
                     0x316D63,
                     new Item.Properties().stacksTo(64)));
+
 
 
     public static void register(IEventBus eventBus) {

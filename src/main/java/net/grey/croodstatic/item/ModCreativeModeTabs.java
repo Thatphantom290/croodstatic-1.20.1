@@ -1,11 +1,13 @@
 package net.grey.croodstatic.item;
 
 import net.grey.croodstatic.Croodstatic;
+import net.grey.croodstatic.block.ModBlockEntities;
 import net.grey.croodstatic.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -31,6 +33,9 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.SNAIL_TREE_STEM.get());
                                 output.accept(ModBlocks.MOIST_SOIL.get());
 
+                                // Other yay
+                                output.accept((ItemLike) ModBlockEntities.CHICKUNA_NEST.get());
+
                                 // Flora Yay
                                 output.accept(ModBlocks.MOIST_GRASS.get());
                                 output.accept(ModBlocks.MEDIUM_MOIST_GRASS.get());
@@ -41,8 +46,11 @@ public class ModCreativeModeTabs {
                                 // Item Yay
                                 output.accept(new ItemStack(ModItems.CHICKUNA_EGG.get()));
                                 output.accept(new ItemStack(ModItems.WILD_CHICKUNA_EGG.get()));
+
+                                // Mobs yay
                                 output.accept(new ItemStack(ModItems.WILD_CHICKUNA_SPAWN_EGG.get()));
                                 output.accept(new ItemStack(ModItems.CHICKUNA_SPAWN_EGG.get()));
+
                             })
                             .build());
 
