@@ -31,6 +31,9 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.SNAIL_TREE_STEM.get());
                                 output.accept(ModBlocks.MOIST_SOIL.get());
 
+                                // Other yay
+                                output.accept(ModBlocks.CHICKUNA_NEST.get());
+
                                 // Flora Yay
                                 output.accept(ModBlocks.MOIST_GRASS.get());
                                 output.accept(ModBlocks.MEDIUM_MOIST_GRASS.get());
