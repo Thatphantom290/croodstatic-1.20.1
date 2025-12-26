@@ -19,6 +19,7 @@ public class ClientSetup {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOIST_GRASS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SNAIL_TREE_GROWTHS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MEDIUM_MOIST_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHICKUNA_NEST.get(), RenderType.cutout());
 
         EntityRenderers.register(ModEntities.CHICKUNA.get(), ChickunaRenderer::new);
         EntityRenderers.register(ModEntities.WILD_CHICKUNA.get(), WildChickunaRenderer::new);

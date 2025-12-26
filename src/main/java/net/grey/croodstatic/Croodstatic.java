@@ -3,14 +3,13 @@ package net.grey.croodstatic;
 import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
 import net.grey.croodstatic.block.entity.ModBlockEntities;
-import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.entity.ModEntities;
-import net.grey.croodstatic.entity.WildChickunaEntity;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
 import net.grey.croodstatic.painting.ModPaintings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
@@ -67,6 +66,18 @@ public class Croodstatic
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+
+        event.enqueueWork(() -> {
+            SpawnPlacements.register(ModEntities.CHICKUNA.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
+
+            SpawnPlacements.register(ModEntities.WILD_CHICKUNA.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
+        });
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -88,19 +99,5 @@ public class Croodstatic
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            SpawnPlacements.register(ModEntities.CHICKUNA.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    ChickunaEntity::canSpawn);
-
-            SpawnPlacements.register(ModEntities.WILD_CHICKUNA.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    WildChickunaEntity::canSpawn);
-        });
     }
 }

@@ -4,7 +4,7 @@
 "texture_size": [64, 64],
 "textures": {
 "2": "croodstatic:block/chickuna_nest_egg",
-"particle": "croodstatic:lock/chickuna_nest_egg"
+"particle": "croodstatic:block/chickuna_nest_egg"
 },
 "elements": [
 {
