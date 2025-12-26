@@ -39,7 +39,7 @@ public class Croodstatic
 
 
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModEntities.ENTITIES.register(modEventBus);
         ModPaintings.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModBlocks.register(modEventBus);
