@@ -4,8 +4,8 @@ import net.minecraft.util.StringRepresentable;
 
 public enum EggType implements StringRepresentable {
     NONE("none"),
-    CHICKUNA("chickuna"),
-    WILD("wild");
+    WILD("wild"),
+    NORMAL("normal");
 
     private final String name;
 
@@ -15,6 +15,11 @@ public enum EggType implements StringRepresentable {
 
     @Override
     public String getSerializedName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
         return name;
     }
 }

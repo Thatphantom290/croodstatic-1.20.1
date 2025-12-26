@@ -3,8 +3,8 @@
 "ambientocclusion": false,
 "texture_size": [64, 64],
 "textures": {
-"2": "croodstatic:block/chickuna_nest_egg",
-"particle": "croodstatic:lock/chickuna_nest_egg"
+"2": "croodstatic:block/chickuna_nest_wild",
+"particle": "croodstatic:lock/chickuna_nest_wild"
 },
 "elements": [
 {

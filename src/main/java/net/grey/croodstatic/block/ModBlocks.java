@@ -80,12 +80,10 @@ public class ModBlocks {
                     .strength(2.0F)
                     .sound(SoundType.WOOD)));
 
-    public static final RegistryObject<Block> CHICKUNA_NEST = registerBlock("chickuna_nest",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(1.0F)
-                    .sound(SoundType.WOOD)
+    public static final RegistryObject<Block> CHICKUNA_NEST = BLOCKS.register("chickuna_nest",
+            () -> new ChickunaNestBlock(BlockBehaviour.Properties.of()
+                    .strength(1.5f)
                     .noOcclusion()));
-
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
