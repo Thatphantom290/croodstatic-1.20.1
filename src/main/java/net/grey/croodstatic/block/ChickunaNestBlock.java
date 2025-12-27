@@ -32,8 +32,11 @@ public class ChickunaNestBlock extends Block implements EntityBlock {
 
     public ChickunaNestBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(EGG_PROPERTY, EggType.NONE));
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, net.minecraft.core.Direction.NORTH));
+        this.registerDefaultState(
+                this.stateDefinition.any()
+                        .setValue(EGG_PROPERTY, EggType.NONE)
+                        .setValue(FACING, net.minecraft.core.Direction.NORTH)
+        );
     }
 
     @Override
@@ -51,24 +54,41 @@ public class ChickunaNestBlock extends Block implements EntityBlock {
         return new ChickunaNestBlockEntity(pos, state);
     }
 
+    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos,
                                  Player player, InteractionHand hand, BlockHitResult hit) {
-        if (level.isClientSide) return InteractionResult.SUCCESS;
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
 
         BlockEntity be = level.getBlockEntity(pos);
-        if (!(be instanceof ChickunaNestBlockEntity nest)) return InteractionResult.PASS;
+        if (!(be instanceof ChickunaNestBlockEntity nest)) {
+            return InteractionResult.PASS;
+        }
 
         ItemStack held = player.getItemInHand(hand);
 
-        if (nest.getEgg().isEmpty() && (held.getItem() == ModItems.WILD_CHICKUNA_EGG.get() || held.getItem() == ModItems.CHICKUNA_EGG.get())) {
+        if (nest.getEgg().isEmpty() && (held.is(ModItems.WILD_CHICKUNA_EGG.get()) || held.is(ModItems.CHICKUNA_EGG.get()))) {
             nest.setEgg(held.copy());
-            held.shrink(1);
-            level.setBlock(pos, state.setValue(EGG_PROPERTY, getEggType(held)), 3);
+            if (!player.isCreative()) {
+                held.shrink(1);
+            }
+            level.setBlock(pos,
+                    state.setValue(EGG_PROPERTY, getEggType(held))
+                            .setValue(FACING, state.getValue(FACING)),
+                    Block.UPDATE_ALL
+            );
             return InteractionResult.CONSUME;
-        } else if (!nest.getEgg().isEmpty()) {
+        }
+
+        else if (!nest.getEgg().isEmpty()) {
             player.addItem(nest.getEgg());
             nest.setEgg(ItemStack.EMPTY);
-            level.setBlock(pos, state.setValue(EGG_PROPERTY, EggType.NONE), 3);
+            level.setBlock(pos,
+                    state.setValue(EGG_PROPERTY, EggType.NONE)
+                            .setValue(FACING, state.getValue(FACING)),
+                    Block.UPDATE_ALL
+            );
             return InteractionResult.CONSUME;
         }
 
