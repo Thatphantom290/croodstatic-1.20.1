@@ -13,6 +13,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -20,7 +21,9 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
@@ -33,6 +36,7 @@ import java.util.List;
 
 public class ChickunaNestBlock extends Block {
     public static final BooleanProperty WITH_EGG = BooleanProperty.create("with_egg");
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     private static final VoxelShape SHAPE = Shapes.box(0.0, 0.0, 0.0, 1.0, 0.9, 1.0);
 
@@ -43,12 +47,13 @@ public class ChickunaNestBlock extends Block {
                 .sound(SoundType.GRASS)
                 .randomTicks());
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(WITH_EGG, Boolean.FALSE));
+                .setValue(WITH_EGG, Boolean.FALSE)
+                .setValue(FACING, Direction.NORTH));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WITH_EGG);
+        builder.add(WITH_EGG, FACING);
     }
 
     @Override
@@ -110,5 +115,12 @@ public class ChickunaNestBlock extends Block {
         ArrayList<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(this.asItem()));
         return drops;
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState()
+                .setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(WITH_EGG, Boolean.FALSE);
     }
 }
