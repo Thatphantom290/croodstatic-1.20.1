@@ -1,34 +1,35 @@
 {
   "variants": {
-    "egg=none,facing=north": {
+    "with_egg=false,facing=north": {
       "model": "croodstatic:block/chickuna_nest",
       "y": 0
     },
-    "egg=none,facing=south": {
+    "with_egg=false,facing=south": {
       "model": "croodstatic:block/chickuna_nest",
       "y": 180
     },
-    "egg=none,facing=west": {
+    "with_egg=false,facing=west": {
       "model": "croodstatic:block/chickuna_nest",
       "y": 270
     },
-    "egg=none,facing=east": {
+    "with_egg=false,facing=east": {
       "model": "croodstatic:block/chickuna_nest",
       "y": 90
     },
-    "egg=normal,facing=north": {
+
+    "with_egg=true,facing=north": {
       "model": "croodstatic:block/chickuna_nest_egg",
       "y": 0
     },
-    "egg=normal,facing=south": {
+    "with_egg=true,facing=south": {
       "model": "croodstatic:block/chickuna_nest_egg",
       "y": 180
     },
-    "egg=normal,facing=west": {
+    "with_egg=true,facing=west": {
       "model": "croodstatic:block/chickuna_nest_egg",
       "y": 270
     },
-    "egg=normal,facing=east": {
+    "with_egg=true,facing=east": {
       "model": "croodstatic:block/chickuna_nest_egg",
       "y": 90
     }

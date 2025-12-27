@@ -20,9 +20,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
@@ -35,7 +33,6 @@ import java.util.List;
 
 public class ChickunaNestBlock extends Block {
     public static final BooleanProperty WITH_EGG = BooleanProperty.create("with_egg");
-    public static final IntegerProperty HATCH = BlockStateProperties.HATCH;
 
     private static final VoxelShape SHAPE = Shapes.box(0.0, 0.0, 0.0, 1.0, 0.9, 1.0);
 
@@ -46,27 +43,19 @@ public class ChickunaNestBlock extends Block {
                 .sound(SoundType.GRASS)
                 .randomTicks());
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(WITH_EGG, Boolean.FALSE)
-                .setValue(HATCH, 0));
+                .setValue(WITH_EGG, Boolean.FALSE));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WITH_EGG, HATCH);
+        builder.add(WITH_EGG);
     }
 
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (!state.getValue(WITH_EGG)) return;
-
-        int hatch = state.getValue(HATCH);
-
-        if (hatch < 2) {
-            level.playSound(null, pos, SoundEvents.TURTLE_EGG_CRACK, SoundSource.BLOCKS, 0.7F, 0.9F + random.nextFloat() * 0.2F);
-            level.setBlock(pos, state.setValue(HATCH, hatch + 1), Block.UPDATE_ALL);
-        } else {
-            level.playSound(null, pos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 0.9F + random.nextFloat() * 0.2F);
-            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE).setValue(HATCH, 0), Block.UPDATE_ALL);
+        if (state.getValue(WITH_EGG)) {
+            level.playSound(null, pos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 1.0F);
+            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
 
             ChickunaEntity chickuna = ModEntities.CHICKUNA.get().create(level);
             if (chickuna != null) {
@@ -88,15 +77,17 @@ public class ChickunaNestBlock extends Block {
         }
 
         if (state.getValue(WITH_EGG) && held.isEmpty()) {
-            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE).setValue(HATCH, 0), Block.UPDATE_ALL);
+            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
             player.addItem(new ItemStack(ModItems.CHICKUNA_EGG.get()));
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.CONSUME;
+
         }
+
 
         if (!state.getValue(WITH_EGG) && (held.is(ModItems.CHICKUNA_EGG.get()))) {
             if (!player.isCreative()) held.shrink(1);
-            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE).setValue(HATCH, 0), Block.UPDATE_ALL);
+            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.CONSUME;
         }
@@ -117,9 +108,6 @@ public class ChickunaNestBlock extends Block {
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
         ArrayList<ItemStack> drops = new ArrayList<>();
-        if (state.getValue(WITH_EGG)) {
-            drops.add(new ItemStack(ModItems.CHICKUNA_EGG.get()));
-        }
         drops.add(new ItemStack(this.asItem()));
         return drops;
     }

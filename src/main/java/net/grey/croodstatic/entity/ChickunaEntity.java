@@ -32,7 +32,7 @@ public class ChickunaEntity extends Animal implements GeoEntity {
     private static final RawAnimation WALK = RawAnimation.begin().thenLoop("animation.chickuna.walk");
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("animation.chickuna.idle");
 
-    public ChickunaEntity(EntityType<? extends ChickunaEntity> type, Level level) {
+    public ChickunaEntity(EntityType<? extends Animal> type, Level level) {
         super(type, level);
     }
 

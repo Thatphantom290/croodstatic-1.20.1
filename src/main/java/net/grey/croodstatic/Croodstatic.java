@@ -90,7 +90,11 @@ public class Croodstatic
         }
     }
 
-    private void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
-        event.register(ModEntities.CHICKUNA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ChickunaEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.REPLACE);
+    @SubscribeEvent public static void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
+        event.register(ModEntities.CHICKUNA.get(),
+                SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ChickunaEntity::canSpawn,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }
