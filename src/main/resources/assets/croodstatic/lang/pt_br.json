@@ -15,10 +15,10 @@
   "block.croodstatic.medium_moist_grass": "Grama Moderadamente Úmida",
   "block.croodstatic.snail_tree_growths": "Broto De Árvore Caracol",
 
-  "item.croodstaic.chickuna_egg": "Ovo De Chickuna",
+  "item.croodstaic.chickuna_egg": "Ovo De Atunlinha",
 
-  "painting.croodstatic.rawr_canyon.item": "Cânion Rawr",
-  "painting.author.croodstatic.rawr_canyon.author": "SlimesMC",
+  "painting.croodstatic.rawr_canyon": "Cânion Rugido",
+  "painting.croodstatic.author.rawr_canyon": "SlimesMC",
 
   "creativetab.croodstatic": "O Croodstático"
 }

@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
@@ -112,12 +113,7 @@ public class ChickunaEntity extends Animal implements GeoEntity {
         return this.nestPos;
     }
 
-    public static boolean canSpawn(EntityType<ChickunaEntity> entityType,
-                                   LevelAccessor world,
-                                   MobSpawnType reason,
-                                   BlockPos pos,
-                                   RandomSource random) {
-        return world.getBlockState(pos.below()).isSolid() &&
-                world.getRawBrightness(pos, 0) > 8;
+    public static boolean canSpawn(EntityType<? extends ChickunaEntity> p_223316_0_, LevelAccessor p_223316_1_, MobSpawnType p_223316_2_, BlockPos p_223316_3_, RandomSource p_223316_4_) {
+        return p_223316_1_.getBlockState(p_223316_3_.below()).is(BlockTags.SAND) && p_223316_1_.getRawBrightness(p_223316_3_, 0) > 8;
     }
 }
