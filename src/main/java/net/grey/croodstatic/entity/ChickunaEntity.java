@@ -10,6 +10,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -26,12 +27,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class ChickunaEntity extends Animal implements GeoEntity {
    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
-    private static final RawAnimation WALK = RawAnimation.begin().thenLoop("animation.chickuna.walk");
-    private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("animation.chickuna.idle");
 
     public ChickunaEntity(EntityType<? extends ChickunaEntity> type, Level level) {
         super(type, level);
@@ -59,9 +59,11 @@ public class ChickunaEntity extends Animal implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 0, state -> {
             if (state.isMoving()) {
-                return state.setAndContinue(WALK);
+                state.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
+            } else {
+                state.setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
             }
-            return state.setAndContinue(IDLE);
+            return PlayState.CONTINUE;
         }));
     }
 

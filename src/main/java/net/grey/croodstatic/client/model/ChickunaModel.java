@@ -12,7 +12,11 @@ public class ChickunaModel extends GeoModel<ChickunaEntity> {
 
     @Override
     public ResourceLocation getTextureResource(ChickunaEntity object) {
-        return new ResourceLocation("croodstatic", "textures/entity/chickuna.png");
+        if (object.isBaby()) {
+            return new ResourceLocation("croodstatic", "textures/entity/chickuna_baby.png");
+        } else {
+            return new ResourceLocation("croodstatic", "textures/entity/chickuna.png");
+        }
     }
 
     @Override
