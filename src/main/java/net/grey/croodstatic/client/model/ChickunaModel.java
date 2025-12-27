@@ -7,7 +7,11 @@ import software.bernie.geckolib.model.GeoModel;
 public class ChickunaModel extends GeoModel<ChickunaEntity> {
     @Override
     public ResourceLocation getModelResource(ChickunaEntity object) {
-        return new ResourceLocation("croodstatic", "geo/chickuna.geo.json");
+        if (object.isBaby()) {
+            return new ResourceLocation("croodstatic", "geo/chickuna_baby.geo.json");
+        } else {
+            return new ResourceLocation("croodstatic", "geo/chickuna.geo.json");
+        }
     }
 
     @Override

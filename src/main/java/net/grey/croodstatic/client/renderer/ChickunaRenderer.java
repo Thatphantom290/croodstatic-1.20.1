@@ -1,6 +1,7 @@
 package net.grey.croodstatic.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.client.model.ChickunaModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -13,14 +14,18 @@ public class ChickunaRenderer extends GeoEntityRenderer<ChickunaEntity> {
     }
 
     @Override
-    public void render(ChickunaEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
+    public void render(ChickunaEntity entity, float entityYaw, float partialTick,
+                       PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (entity.isBaby()) {
-            poseStack.scale(-0.8F, -0.8F, -0.8F);
-        } else {
-            poseStack.scale(1.0F, 1.0F, 1.0F);
+            poseStack.scale(0.5F, 0.5F, 0.5F);
+
+
+            poseStack.translate(0.0D, 1.0D, 0.0D);
+            poseStack.mulPose(Axis.YP.rotationDegrees(180));
         }
+
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
+
 
 }
