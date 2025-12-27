@@ -54,6 +54,7 @@ public class ChickunaNestBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(WITH_EGG, FACING);
+
     }
 
     @Override
@@ -123,4 +124,5 @@ public class ChickunaNestBlock extends Block {
                 .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(WITH_EGG, Boolean.FALSE);
     }
+
 }

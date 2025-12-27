@@ -15,5 +15,5 @@ public class ModEntities {
             ENTITIES.register("chickuna",
                     () -> EntityType.Builder.of(ChickunaEntity::new, MobCategory.CREATURE)
                             .sized(0.4F, 0.7F)
-                            .build("chickuna"));
+                            .build(Croodstatic.MODID + ":chickuna"));
 }

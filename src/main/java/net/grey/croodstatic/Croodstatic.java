@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -90,9 +89,14 @@ public class Croodstatic
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
+    
+    @SubscribeEvent
+    public static void onEntityAttributeCreation(final net.minecraftforge.event.entity.EntityAttributeCreationEvent event) {
+        event.put(ModEntities.CHICKUNA.get(), ChickunaEntity.createAttributes().build());
+    }
 
     @SubscribeEvent
-    public static void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
+    public static void registerSpawnPlacements(final net.minecraftforge.event.entity.SpawnPlacementRegisterEvent event) {
         event.register(ModEntities.CHICKUNA.get(),
                 SpawnPlacements.Type.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -100,7 +104,4 @@ public class Croodstatic
                 SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 
-    private void registerAttributes(final EntityAttributeCreationEvent e) {
-        e.put(ModEntities.CHICKUNA.get(), ChickunaEntity.createAttributes().build());
-    }
 }
