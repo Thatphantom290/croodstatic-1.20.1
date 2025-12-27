@@ -1,50 +1,68 @@
 package net.grey.croodstatic.entity;
 
+import javax.annotation.Nullable;
 import net.grey.croodstatic.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.Animation;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import javax.annotation.Nullable;
+public class ChickunaEntity extends Animal implements GeoEntity {
+   private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
+    private static final RawAnimation WALK = RawAnimation.begin().thenLoop("animation.chickuna.walk");
+    private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("animation.chickuna.idle");
 
-public class ChickunaEntity extends Chicken implements GeoEntity {
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-
-    public ChickunaEntity(EntityType<? extends Chicken> type, Level level) {
+    public ChickunaEntity(EntityType<? extends ChickunaEntity> type, Level level) {
         super(type, level);
+    }
+
+    @Override
+    protected void registerGoals() {
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+    }
+
+    public static AttributeSupplier.Builder createAttributes() {
+        return Animal.createLivingAttributes()
+                .add(Attributes.MAX_HEALTH, 3.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.28D)
+                .add(Attributes.FOLLOW_RANGE, 16.0D);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 0, state -> {
             if (state.isMoving()) {
-                return state.setAndContinue(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
+                return state.setAndContinue(WALK);
             }
-            return state.setAndContinue(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+            return state.setAndContinue(IDLE);
         }));
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
+        return null;
     }
 
     @Override
@@ -52,35 +70,35 @@ public class ChickunaEntity extends Chicken implements GeoEntity {
         return SoundEvents.CHICKEN_AMBIENT;
     }
 
-    @Override public boolean isFood(ItemStack stack) {
-        return stack.is(Items.WHEAT_SEEDS)
-                || stack.is(Items.BEETROOT_SEEDS)
-                || stack.is(Items.MELON_SEEDS)
-                || stack.is(Items.PUMPKIN_SEEDS);
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundEvents.CHICKEN_HURT;
     }
 
     @Override
-    public Chicken getBreedOffspring(ServerLevel level, AgeableMob partner) {
-        ItemStack egg;
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.CHICKEN_DEATH;
+    }
 
-        if (this instanceof ChickunaEntity || partner instanceof ChickunaEntity) {
-            egg = new ItemStack(ModItems.CHICKUNA_EGG.get());
-        } else {
-            egg = new ItemStack(ModItems.CHICKUNA_EGG.get());
-        }
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState blockIn) {
+        this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
+    }
 
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob partner) {
+        ItemStack egg = new ItemStack(ModItems.CHICKUNA_EGG.get());
         level.addFreshEntity(new ItemEntity(level, this.getX(), this.getY(), this.getZ(), egg));
 
         return null;
     }
 
-    public static boolean canSpawn(EntityType<ChickunaEntity> entityType,
-                                   LevelAccessor world,
-                                   MobSpawnType reason,
-                                   BlockPos pos,
-                                   RandomSource random) {
-        return world.getBlockState(pos.below()).isSolid() &&
-                world.getRawBrightness(pos, 0) > 8;
+    @Override
+    public boolean isFood(ItemStack stack) {
+        return stack.is(Items.WHEAT_SEEDS)
+                || stack.is(Items.BEETROOT_SEEDS)
+                || stack.is(Items.MELON_SEEDS)
+                || stack.is(Items.PUMPKIN_SEEDS);
     }
 
     private BlockPos nestPos;
@@ -92,5 +110,14 @@ public class ChickunaEntity extends Chicken implements GeoEntity {
     @Nullable
     public BlockPos getNestPos() {
         return this.nestPos;
+    }
+
+    public static boolean canSpawn(EntityType<ChickunaEntity> entityType,
+                                   LevelAccessor world,
+                                   MobSpawnType reason,
+                                   BlockPos pos,
+                                   RandomSource random) {
+        return world.getBlockState(pos.below()).isSolid() &&
+                world.getRawBrightness(pos, 0) > 8;
     }
 }

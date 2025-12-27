@@ -71,7 +71,8 @@ public class Croodstatic
             SpawnPlacements.register(ModEntities.CHICKUNA.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    ChickunaEntity::canSpawn);
+                    ChickunaEntity::canSpawn
+            );
         });
     }
 
