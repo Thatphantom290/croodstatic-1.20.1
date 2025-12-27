@@ -43,10 +43,8 @@ public class ModCreativeModeTabs {
 
                                 // Item Yay
                                 output.accept(new ItemStack(ModItems.CHICKUNA_EGG.get()));
-                                output.accept(new ItemStack(ModItems.WILD_CHICKUNA_EGG.get()));
 
                                 // Mobs yay
-                                output.accept(new ItemStack(ModItems.WILD_CHICKUNA_SPAWN_EGG.get()));
                                 output.accept(new ItemStack(ModItems.CHICKUNA_SPAWN_EGG.get()));
 
                             })

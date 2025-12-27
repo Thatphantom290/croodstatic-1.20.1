@@ -2,7 +2,6 @@ package net.grey.croodstatic;
 
 import net.grey.croodstatic.block.ModBlocks;
 import net.grey.croodstatic.client.renderer.ChickunaRenderer;
-import net.grey.croodstatic.client.renderer.WildChickunaRenderer;
 import net.grey.croodstatic.entity.ModEntities;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -22,6 +21,5 @@ public class ClientSetup {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHICKUNA_NEST.get(), RenderType.cutout());
 
         EntityRenderers.register(ModEntities.CHICKUNA.get(), ChickunaRenderer::new);
-        EntityRenderers.register(ModEntities.WILD_CHICKUNA.get(), WildChickunaRenderer::new);
     }
 }

@@ -23,6 +23,8 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import javax.annotation.Nullable;
+
 public class ChickunaEntity extends Chicken implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -79,5 +81,16 @@ public class ChickunaEntity extends Chicken implements GeoEntity {
                                    RandomSource random) {
         return world.getBlockState(pos.below()).isSolid() &&
                 world.getRawBrightness(pos, 0) > 8;
+    }
+
+    private BlockPos nestPos;
+
+    public void setNestPos(@Nullable BlockPos pos) {
+        this.nestPos = pos;
+    }
+
+    @Nullable
+    public BlockPos getNestPos() {
+        return this.nestPos;
     }
 }

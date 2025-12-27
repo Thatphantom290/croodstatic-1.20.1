@@ -15,11 +15,5 @@ public class ModEntities {
             ENTITIES.register("chickuna",
                     () -> EntityType.Builder.of(ChickunaEntity::new, MobCategory.CREATURE)
                             .sized(0.4F, 0.7F)
-                            .build(Croodstatic.MODID + ":chickuna"));
-
-    public static final RegistryObject<EntityType<WildChickunaEntity>> WILD_CHICKUNA =
-            ENTITIES.register("wild_chickuna",
-                    () -> EntityType.Builder.of(WildChickunaEntity::new, MobCategory.CREATURE)
-                            .sized(0.4F, 0.7F)
-                            .build(Croodstatic.MODID + ":wild_chickuna"));
+                            .build(Croodstatic.MODID + "chickuna"));
 }

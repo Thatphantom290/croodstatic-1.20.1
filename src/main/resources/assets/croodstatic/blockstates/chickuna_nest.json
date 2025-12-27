@@ -1,18 +1,36 @@
 {
   "variants": {
-    "egg=none,facing=north": { "model": "croodstatic:block/chickuna_nest", "y": 0 },
-    "egg=none,facing=south": { "model": "croodstatic:block/chickuna_nest", "y": 180 },
-    "egg=none,facing=west":  { "model": "croodstatic:block/chickuna_nest", "y": 270 },
-    "egg=none,facing=east":  { "model": "croodstatic:block/chickuna_nest", "y": 90 },
-
-    "egg=normal,facing=north": { "model": "croodstatic:block/chickuna_nest", "y": 0, "textures": { "2": "croodstatic:block/chickuna_nest_egg" } },
-    "egg=normal,facing=south": { "model": "croodstatic:block/chickuna_nest", "y": 180, "textures": { "2": "croodstatic:block/chickuna_nest_egg" } },
-    "egg=normal,facing=west":  { "model": "croodstatic:block/chickuna_nest", "y": 270, "textures": { "2": "croodstatic:block/chickuna_nest_egg" } },
-    "egg=normal,facing=east":  { "model": "croodstatic:block/chickuna_nest", "y": 90, "textures": { "2": "croodstatic:block/chickuna_nest_egg" } },
-
-    "egg=wild,facing=north": { "model": "croodstatic:block/chickuna_nest", "y": 0, "textures": { "2": "croodstatic:block/chickuna_nest_wild" } },
-    "egg=wild,facing=south": { "model": "croodstatic:block/chickuna_nest", "y": 180, "textures": { "2": "croodstatic:block/chickuna_nest_wild" } },
-    "egg=wild,facing=west":  { "model": "croodstatic:block/chickuna_nest", "y": 270, "textures": { "2": "croodstatic:block/chickuna_nest_wild" } },
-    "egg=wild,facing=east":  { "model": "croodstatic:block/chickuna_nest", "y": 90, "textures": { "2": "croodstatic:block/chickuna_nest_wild" } }
+    "egg=none,facing=north": {
+      "model": "croodstatic:block/chickuna_nest",
+      "y": 0
+    },
+    "egg=none,facing=south": {
+      "model": "croodstatic:block/chickuna_nest",
+      "y": 180
+    },
+    "egg=none,facing=west": {
+      "model": "croodstatic:block/chickuna_nest",
+      "y": 270
+    },
+    "egg=none,facing=east": {
+      "model": "croodstatic:block/chickuna_nest",
+      "y": 90
+    },
+    "egg=normal,facing=north": {
+      "model": "croodstatic:block/chickuna_nest_egg",
+      "y": 0
+    },
+    "egg=normal,facing=south": {
+      "model": "croodstatic:block/chickuna_nest_egg",
+      "y": 180
+    },
+    "egg=normal,facing=west": {
+      "model": "croodstatic:block/chickuna_nest_egg",
+      "y": 270
+    },
+    "egg=normal,facing=east": {
+      "model": "croodstatic:block/chickuna_nest_egg",
+      "y": 90
+    }
   }
 }

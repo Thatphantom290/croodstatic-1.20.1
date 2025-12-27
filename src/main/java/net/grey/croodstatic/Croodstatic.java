@@ -2,16 +2,13 @@ package net.grey.croodstatic;
 
 import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
-import net.grey.croodstatic.block.entity.ModBlockEntities;
 import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.entity.ModEntities;
-import net.grey.croodstatic.entity.WildChickunaEntity;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
 import net.grey.croodstatic.painting.ModPaintings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
@@ -42,7 +39,6 @@ public class Croodstatic
         IEventBus modEventBus = context.getModEventBus();
         GeckoLib.initialize();
 
-        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
         ModPaintings.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
@@ -76,11 +72,6 @@ public class Croodstatic
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     ChickunaEntity::canSpawn);
-
-            SpawnPlacements.register(ModEntities.WILD_CHICKUNA.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    WildChickunaEntity::canSpawn);
         });
     }
 
