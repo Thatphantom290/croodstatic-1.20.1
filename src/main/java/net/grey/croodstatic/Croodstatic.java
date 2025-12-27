@@ -2,18 +2,14 @@ package net.grey.croodstatic;
 
 import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
-import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.entity.ModEntities;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
 import net.grey.croodstatic.painting.ModPaintings;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -88,20 +84,6 @@ public class Croodstatic
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
-    }
-    
-    @SubscribeEvent
-    public static void onEntityAttributeCreation(final net.minecraftforge.event.entity.EntityAttributeCreationEvent event) {
-        event.put(ModEntities.CHICKUNA.get(), ChickunaEntity.createAttributes().build());
-    }
-
-    @SubscribeEvent
-    public static void registerSpawnPlacements(final net.minecraftforge.event.entity.SpawnPlacementRegisterEvent event) {
-        event.register(ModEntities.CHICKUNA.get(),
-                SpawnPlacements.Type.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                ChickunaEntity::canSpawn,
-                SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 
 }

@@ -19,6 +19,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -39,16 +40,19 @@ public class ChickunaEntity extends Animal implements GeoEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(1, new BreedGoal(this, 1.15D));
+
+        this.goalSelector.addGoal(2, new TemptGoal(this,1.2D, Ingredient.of(Items.WHEAT_SEEDS), false));
+        this.goalSelector.addGoal(3, new FollowParentGoal(this,1.15D));
+
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 3.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.28D)
-                .add(Attributes.FOLLOW_RANGE, 16.0D);
+                .add(Attributes.MAX_HEALTH,3.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.25D)
+                .add(Attributes.FOLLOW_RANGE, 10.0D);
     }
 
     @Override

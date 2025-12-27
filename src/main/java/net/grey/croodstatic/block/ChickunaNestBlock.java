@@ -82,18 +82,16 @@ public class ChickunaNestBlock extends Block {
             return InteractionResult.SUCCESS;
         }
 
-        if (state.getValue(WITH_EGG) && held.isEmpty()) {
+        if (state.getValue(WITH_EGG)) {
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
             player.addItem(new ItemStack(ModItems.CHICKUNA_EGG.get()));
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.CONSUME;
-
         }
 
-
-        if (!state.getValue(WITH_EGG) && (held.is(ModItems.CHICKUNA_EGG.get()))) {
+        if (!state.getValue(WITH_EGG) && held.is(ModItems.CHICKUNA_EGG.get())) {
             if (!player.isCreative()) held.shrink(1);
-            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
+            level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.CONSUME;
         }
