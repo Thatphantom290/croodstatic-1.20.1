@@ -57,35 +57,34 @@ public class ChickunaNestBlock extends Block implements EntityBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos,
                                  Player player, InteractionHand hand, BlockHitResult hit) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        }
-
-        BlockEntity be = level.getBlockEntity(pos);
-        if (!(be instanceof ChickunaNestBlockEntity nest)) {
-            return InteractionResult.PASS;
-        }
+        if (level.isClientSide) return InteractionResult.SUCCESS;
 
         ItemStack held = player.getItemInHand(hand);
+        EggType current = state.getValue(EGG_PROPERTY);
 
-        if (nest.getEgg().isEmpty() && (held.is(ModItems.WILD_CHICKUNA_EGG.get()) || held.is(ModItems.CHICKUNA_EGG.get()))) {
-            nest.setEgg(held.copy());
-            if (!player.isCreative()) {
-                held.shrink(1);
-            }
+        if (current == EggType.NONE &&
+                (held.is(ModItems.WILD_CHICKUNA_EGG.get()) || held.is(ModItems.CHICKUNA_EGG.get()))) {
+
+            EggType newType = getEggType(held);
+            if (!player.isCreative()) held.shrink(1);
+
             level.setBlock(pos,
-                    state.setValue(EGG_PROPERTY, getEggType(held))
+                    state.setValue(EGG_PROPERTY, EggType.NORMAL)
                             .setValue(FACING, state.getValue(FACING)),
                     Block.UPDATE_ALL
             );
             return InteractionResult.CONSUME;
         }
 
-        else if (!nest.getEgg().isEmpty()) {
-            player.addItem(nest.getEgg());
-            nest.setEgg(ItemStack.EMPTY);
+        else if (current != EggType.NONE && held.isEmpty()) {
+            ItemStack drop = current == EggType.WILD
+                    ? new ItemStack(ModItems.WILD_CHICKUNA_EGG.get())
+                    : new ItemStack(ModItems.CHICKUNA_EGG.get());
+
+            player.addItem(drop);
+
             level.setBlock(pos,
-                    state.setValue(EGG_PROPERTY, EggType.NONE)
+                    state.setValue(EGG_PROPERTY, EggType.NORMAL)
                             .setValue(FACING, state.getValue(FACING)),
                     Block.UPDATE_ALL
             );

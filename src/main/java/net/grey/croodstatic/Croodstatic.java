@@ -3,7 +3,9 @@ package net.grey.croodstatic;
 import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
 import net.grey.croodstatic.block.entity.ModBlockEntities;
+import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.entity.ModEntities;
+import net.grey.croodstatic.entity.WildChickunaEntity;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
 import net.grey.croodstatic.painting.ModPaintings;
@@ -73,12 +75,12 @@ public class Croodstatic
             SpawnPlacements.register(ModEntities.CHICKUNA.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules);
+                    ChickunaEntity::canSpawn);
 
             SpawnPlacements.register(ModEntities.WILD_CHICKUNA.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules);
+                    WildChickunaEntity::canSpawn);
         });
     }
 
