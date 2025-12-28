@@ -58,7 +58,7 @@ public class ChickunaNestBlock extends Block {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (state.getValue(WITH_EGG)) {
             level.playSound(null, pos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 1.0F);
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
@@ -77,12 +77,8 @@ public class ChickunaNestBlock extends Block {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack held = player.getItemInHand(hand);
 
-        if (level.isClientSide) {
-            level.playSound(player, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
-            return InteractionResult.SUCCESS;
-        }
-
         if (state.getValue(WITH_EGG)) {
+
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
             player.addItem(new ItemStack(ModItems.CHICKUNA_EGG.get()));
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -95,9 +91,11 @@ public class ChickunaNestBlock extends Block {
             }
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+            level.scheduleTick(pos, this, 24000);
+
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
-
 
         return InteractionResult.PASS;
     }
@@ -125,5 +123,4 @@ public class ChickunaNestBlock extends Block {
                 .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(WITH_EGG, Boolean.FALSE);
     }
-
 }

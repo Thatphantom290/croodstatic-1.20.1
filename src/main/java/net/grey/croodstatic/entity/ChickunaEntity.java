@@ -94,9 +94,6 @@ public class ChickunaEntity extends Animal implements GeoEntity {
 
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob partner) {
-        ItemStack egg = new ItemStack(ModItems.CHICKUNA_EGG.get());
-        level.addFreshEntity(new ItemEntity(level, this.getX(), this.getY(), this.getZ(), egg));
-
         return null;
     }
 
