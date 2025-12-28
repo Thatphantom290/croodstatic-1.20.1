@@ -2,6 +2,7 @@ package net.grey.croodstatic;
 
 import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
+import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.entity.ModEntities;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
@@ -10,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -86,4 +88,7 @@ public class Croodstatic
         }
     }
 
+    private void registerAttributes(final EntityAttributeCreationEvent event) {
+        event.put(ModEntities.CHICKUNA.get(), ChickunaEntity.createAttributes().build());
+    }
 }
