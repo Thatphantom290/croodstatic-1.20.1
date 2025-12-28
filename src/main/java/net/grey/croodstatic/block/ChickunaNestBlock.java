@@ -92,7 +92,7 @@ public class ChickunaNestBlock extends Block {
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
 
-            level.scheduleTick(pos, this, 24000);
+            level.scheduleTick(pos, this, 48000);
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
