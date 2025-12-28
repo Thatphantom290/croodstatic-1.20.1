@@ -64,12 +64,14 @@ public class ChickunaNestBlock extends Block {
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
 
             ChickunaEntity chickuna = ModEntities.CHICKUNA.get().create(level);
-            if (chickuna != null) {
-                chickuna.setAge(-24000);
-                chickuna.moveTo(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 0.0F, 0.0F);
-                chickuna.setNestPos(pos);
-                level.addFreshEntity(chickuna);
+            if (chickuna == null) {
+                return;
             }
+
+            chickuna.setAge(-24000);
+            chickuna.moveTo(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 0.0F, 0.0F);
+            chickuna.setNestPos(pos);
+            level.addFreshEntity(chickuna);
         }
     }
 
