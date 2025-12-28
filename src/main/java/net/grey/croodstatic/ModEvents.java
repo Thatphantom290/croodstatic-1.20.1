@@ -33,7 +33,6 @@ public class ModEvents {
     @SubscribeEvent
     public static void onBabySpawn(BabyEntitySpawnEvent event) {
         if (event.getParentA() instanceof ChickunaEntity || event.getParentB() instanceof ChickunaEntity) {
-
             event.setCanceled(true);
 
             ServerLevel level = (ServerLevel) event.getParentA().level();
