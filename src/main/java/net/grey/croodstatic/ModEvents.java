@@ -14,8 +14,9 @@ import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = Croodstatic.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Croodstatic.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
+
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
         event.put(ModEntities.CHICKUNA.get(), ChickunaEntity.createAttributes().build());
