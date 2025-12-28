@@ -69,7 +69,7 @@ public class ChickunaNestBlock extends Block {
             }
 
             chickuna.setAge(-24000);
-            chickuna.moveTo(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 0.0F, 0.0F);
+            chickuna.moveTo(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 1.0D, 0.0F, 0.0F);
             chickuna.setNestPos(pos);
             level.addFreshEntity(chickuna);
         }
@@ -90,16 +90,17 @@ public class ChickunaNestBlock extends Block {
         if (!state.getValue(WITH_EGG) && held.is(ModItems.CHICKUNA_EGG.get())) {
             if (!player.isCreative()) {
                 held.shrink(1);
+                if (held.isEmpty()) {
+                    player.setItemInHand(hand, ItemStack.EMPTY);
+                }
             }
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
 
             level.scheduleTick(pos, this, 48000);
 
-            return InteractionResult.sidedSuccess(level.isClientSide);
         }
-
-        return InteractionResult.PASS;
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
     @Override

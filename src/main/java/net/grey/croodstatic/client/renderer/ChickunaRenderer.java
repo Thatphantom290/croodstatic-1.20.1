@@ -18,7 +18,7 @@ public class ChickunaRenderer extends GeoEntityRenderer<ChickunaEntity> {
                        PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (entity.isBaby()) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
-            poseStack.translate(0.0D, -0.5D, 0.0D);
+            poseStack.translate(0.0D, 0.0D, 0.0D);
         }
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
