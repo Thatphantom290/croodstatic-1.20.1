@@ -93,13 +93,14 @@ public class ChickunaNestBlock extends Block {
                     player.setItemInHand(hand, ItemStack.EMPTY);
                 }
             }
+
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
 
-            level.scheduleTick(pos, this, 54800);
-
+            level.scheduleTick(pos, this, 48000);
         }
-        return InteractionResult.SUCCESS;
+
+        return InteractionResult.SUCCESS; // ✅ garante que o servidor aplique
     }
 
     @Override

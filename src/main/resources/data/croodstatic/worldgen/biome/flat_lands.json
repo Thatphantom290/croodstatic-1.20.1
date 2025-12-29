@@ -1,0 +1,112 @@
+{
+  "temperature": 0.9,
+  "downfall": 0,
+  "has_precipitation": false,
+  "temperature_modifier": "none",
+  "effects": {
+    "sky_color": 6431266,
+    "fog_color": 7623461,
+    "water_color": 6524036,
+    "water_fog_color": 3687290,
+    "grass_color": 10043418,
+    "foliage_color": 7810318
+  },
+  "carvers": {
+    "air": [
+      "croodaceous:croods_caves"
+    ]
+  },
+  "features": [
+    [
+      "croodstatic:snail_tree_placed"
+    ],
+    [
+      "minecraft:seagrass_river"
+    ],
+    [
+      "croodstatic:chickuna_nest_placed"
+    ],
+    [
+      "croodstatic:moist_grass_patch_placed",
+      "croodstatic:medium_moist_grass_patch_placed"
+    ],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_tuff",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:ore_copper",
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel"
+    ]
+  ],
+  "surface_rule": {
+    "type": "minecraft:sequence",
+    "sequence": [
+      {
+        "if_true": {
+          "type": "minecraft:stone_depth",
+          "offset": 0,
+          "surface_type": "floor"
+        },
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": {
+            "Name": "croodstatic:grassy_moist_soil"
+          }
+        }
+      },
+      {
+        "if_true": {
+          "type": "minecraft:stone_depth",
+          "offset": 1,
+          "surface_type": "floor"
+        },
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": {
+            "Name": "croodstatic:moist_soil"
+          }
+        }
+      }
+    ]
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "croodstatic:chickuna",
+        "weight": 5,
+        "minCount": 3,
+        "maxCount": 6
+      },
+      {
+        "type": "croodaceous:fang_fly",
+        "weight": 4,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ]
+  }
+}

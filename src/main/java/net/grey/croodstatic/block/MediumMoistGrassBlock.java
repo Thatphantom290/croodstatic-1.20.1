@@ -23,6 +23,7 @@ public class MediumMoistGrassBlock extends Block {
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         BlockState below = level.getBlockState(pos.below());
         return below.is(Blocks.GRASS_BLOCK)
-                || below.is(Blocks.MOSS_BLOCK);
+                || below.is(Blocks.MOSS_BLOCK)
+                || below.is(ModBlocks.GRASSY_MOIST_SOIL.get());
     }
 }
