@@ -51,6 +51,12 @@ public class ModConfiguredFeatures {
                                 Feature.SIMPLE_BLOCK,
                                 new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.MEDIUM_MOIST_GRASS.get())),
                                 List.of(), 32)));
-    }
 
+        context.register(SNAIL_TREE_KEY,
+                new ConfiguredFeature<>(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.SNAIL_TREE_LEAVES.get()))));
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.SNAIL_TREE_STEM.get()));
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.SNAIL_TREE_GROWTHS.get()));
+
+    }
 }
