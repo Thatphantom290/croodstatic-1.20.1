@@ -80,11 +80,10 @@ public class ChickunaNestBlock extends Block {
         ItemStack held = player.getItemInHand(hand);
 
         if (state.getValue(WITH_EGG)) {
-
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.FALSE), Block.UPDATE_ALL);
             player.addItem(new ItemStack(ModItems.CHICKUNA_EGG.get()));
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
-            return InteractionResult.sidedSuccess(level.isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         if (!state.getValue(WITH_EGG) && held.is(ModItems.CHICKUNA_EGG.get())) {
@@ -97,10 +96,10 @@ public class ChickunaNestBlock extends Block {
             level.setBlock(pos, state.setValue(WITH_EGG, Boolean.TRUE), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.GRASS_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
 
-            level.scheduleTick(pos, this, 48000);
+            level.scheduleTick(pos, this, 54800);
 
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     @Override

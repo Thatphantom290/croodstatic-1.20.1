@@ -49,22 +49,14 @@ public class ModBlocks {
                     () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
     public static final RegistryObject<Block> MOIST_GRASS = registerBlock("moist_grass",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .noCollission()
-                    .instabreak()
-                    .sound(SoundType.GRASS)));
+            () -> new MoistGrassBlock());
 
     public static final RegistryObject<Block> MEDIUM_MOIST_GRASS = registerBlock("medium_moist_grass",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .noCollission()
-                    .instabreak()
-                    .sound(SoundType.GRASS)));
+            () -> new MediumMoistGrassBlock());
 
     public static final RegistryObject<Block> SNAIL_TREE_GROWTHS = registerBlock("snail_tree_growths",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .noCollission()
-                    .instabreak()
-                    .sound(SoundType.CORAL_BLOCK)));
+            () -> new SnailTreeGrowthsBlock());
+
 
     public static final RegistryObject<Block> SNAIL_TREE_LEAVES = registerBlock("snail_tree_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.of()

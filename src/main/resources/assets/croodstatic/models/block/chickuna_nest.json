@@ -99,6 +99,30 @@
 			}
 		}
 	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.30664, 0.30664, 0.30664]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.30664, 0.30664, 0.30664]
+		},
+		"firstperson_righthand": {
+			"scale": [0.64, 0.64, 0.64]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.64, 0.64, 0.64]
+		},
+		"ground": {
+			"scale": [0.64, 0.64, 0.64]
+		},
+		"gui": {
+			"rotation": [-157.92, 40.97, 179.07],
+			"scale": [0.64, 0.64, 0.64]
+		},
+		"fixed": {
+			"scale": [1.24805, 1.24609, 1]
+		}
+	},
 	"groups": [
 		{
 			"name": "chickuna_nest",
