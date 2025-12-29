@@ -1,6 +1,5 @@
 package net.grey.croodstatic;
 
-import com.mojang.serialization.Lifecycle;
 import net.grey.croodstatic.entity.ModEntities;
 import net.grey.croodstatic.features.ModPlacedFeatures;
 import net.minecraft.core.registries.Registries;
@@ -58,6 +57,6 @@ public class ModBiomes {
                 .generationSettings(generation.build())
                 .build();
 
-        context.register(FLAT_LANDS_KEY, biome, Lifecycle.stable());
+        context.register(FLAT_LANDS_KEY, biome, com.mojang.serialization.Lifecycle.stable());
     }
 }
