@@ -57,7 +57,6 @@ public class Croodstatic
         ModCreativeModeTabs.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
-        modEventBus.addListener(this::gatherData);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -78,7 +77,8 @@ public class Croodstatic
                 new DatapackBuiltinEntriesProvider(output, lookup,
                         new RegistrySetBuilder()
                                 .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
-                                .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap),
+                                .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
+                                .add(Registries.BIOME, ModBiomes::bootstrap),
                         Set.of(MODID)));
     }
 
