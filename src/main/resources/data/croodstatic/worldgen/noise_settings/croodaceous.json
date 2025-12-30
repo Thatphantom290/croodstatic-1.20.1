@@ -542,34 +542,6 @@
         "result_state": {
           "Name": "croodaceous:desolate_sandstone"
         }
-      },
-      {
-        "type": "minecraft:condition",
-        "if_true": {
-          "type": "minecraft:stone_depth",
-          "offset": 0,
-          "surface_type": "floor"
-        },
-        "then_run": {
-          "type": "minecraft:block",
-          "result_state": {
-            "Name": "croodstatic:grassy_moist_soil"
-          }
-        }
-      },
-      {
-        "type": "minecraft:condition",
-        "if_true": {
-          "type": "minecraft:stone_depth",
-          "offset": 1,
-          "surface_type": "floor"
-        },
-        "then_run": {
-          "type": "minecraft:block",
-          "result_state": {
-            "Name": "croodstatic:moist_soil"
-          }
-        }
       }
     ]
   }
