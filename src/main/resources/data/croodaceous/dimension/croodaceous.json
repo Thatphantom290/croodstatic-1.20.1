@@ -102,25 +102,13 @@
         {
           "biome": "croodstatic:flat_lands",
           "parameters": {
-            "temperature": [
-              -0.75,
-              -0.5
-            ],
-            "humidity": [
-              -1,
-              1
-            ],
-            "erosion": [
-              -1,
-              1
-            ],
-            "continentalness": [
-              -1,
-              1
-            ],
-            "weirdness": 0,
-            "depth": 0,
-            "offset": 0
+            "temperature": 0.9,
+            "humidity": 0.5,
+            "continentalness": 0.5,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
+            "offset": 0.0
           }
         },
         {

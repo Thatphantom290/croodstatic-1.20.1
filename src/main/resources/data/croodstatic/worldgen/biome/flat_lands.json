@@ -61,37 +61,6 @@
       "minecraft:disk_gravel"
     ]
   ],
-  "surface_rule": {
-    "type": "minecraft:sequence",
-    "sequence": [
-      {
-        "if_true": {
-          "type": "minecraft:stone_depth",
-          "offset": 0,
-          "surface_type": "floor"
-        },
-        "then_run": {
-          "type": "minecraft:block",
-          "result_state": {
-            "Name": "croodstatic:grassy_moist_soil"
-          }
-        }
-      },
-      {
-        "if_true": {
-          "type": "minecraft:stone_depth",
-          "offset": 1,
-          "surface_type": "floor"
-        },
-        "then_run": {
-          "type": "minecraft:block",
-          "result_state": {
-            "Name": "croodstatic:moist_soil"
-          }
-        }
-      }
-    ]
-  },
   "spawners": {
     "monster": [],
     "creature": [
