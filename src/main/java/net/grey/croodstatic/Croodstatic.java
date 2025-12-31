@@ -4,22 +4,13 @@ import com.mojang.logging.LogUtils;
 import net.grey.croodstatic.block.ModBlocks;
 import net.grey.croodstatic.entity.ChickunaEntity;
 import net.grey.croodstatic.entity.ModEntities;
-import net.grey.croodstatic.features.ModConfiguredFeatures;
-import net.grey.croodstatic.features.ModPlacedFeatures;
 import net.grey.croodstatic.item.ModCreativeModeTabs;
 import net.grey.croodstatic.item.ModItems;
 import net.grey.croodstatic.painting.ModPaintings;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -30,12 +21,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
-import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Croodstatic.MODID)
@@ -66,20 +54,6 @@ public class Croodstatic
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-    }
-
-    private void gatherData(GatherDataEvent event) {
-        DataGenerator gen = event.getGenerator();
-        PackOutput output = gen.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
-
-        gen.addProvider(event.includeServer(),
-                new DatapackBuiltinEntriesProvider(output, lookup,
-                        new RegistrySetBuilder()
-                                .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
-                                .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-                                .add(Registries.BIOME, ModBiomes::bootstrap),
-                        Set.of(MODID)));
     }
 
     private void registerAttributes(EntityAttributeCreationEvent event) {
